@@ -39,17 +39,19 @@ app.use("/api/volunteers", volunteerRoutes);
 app.use("/api/hours", hoursRoutes);
 app.use("/api/admin", adminRoutes);
 
-// Serve frontend
-// app.get("*", (req, res) => {
-//     console.log(`Running...`);
-//   res.sendFile(path.join(__dirname, "public", "index.html"));
-// });
-
-
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
       console.log(`API Running...`);
   res.json({"message":"success"});
 });
+
+// Serve frontend
+app.get("*", (req, res) => {
+    console.log(`Running...`);
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
