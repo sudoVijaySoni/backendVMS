@@ -40,13 +40,13 @@ app.use("/api/hours", hoursRoutes);
 app.use("/api/admin", adminRoutes);
 
 // Serve frontend
-app.get("*", (req, res) => {
-    console.log(`Running...`);
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+// app.get("*", (req, res) => {
+//     console.log(`Running...`);
+//   res.sendFile(path.join(__dirname, "public", "index.html"));
+// });
 
 
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
       console.log(`API Running...`);
   res.json({"message":"success"});
 });
